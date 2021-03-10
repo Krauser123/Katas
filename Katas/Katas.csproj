@@ -43,10 +43,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LevelOne\CashUnits.cs" />
+    <Compile Include="LevelOne\FindNextPalindromeNumber.cs" />
+    <Compile Include="LevelOne\FirstNonRepeatedCharacter.cs" />
+    <Compile Include="LevelOne\IncrementNumberInArray.cs" />
+    <Compile Include="LevelOne\IntegerLength.cs" />
+    <Compile Include="LevelOne\LargestPalindrome.cs" />
+    <Compile Include="LevelOne\LongestCompoundWord.cs" />
+    <Compile Include="LevelOne\LongestWords.cs" />
+    <Compile Include="LevelOne\LoopsInNumber.cs" />
+    <Compile Include="LevelOne\MoneyFormating.cs" />
+    <Compile Include="LevelOne\ReverseWordsInAString.cs" />
+    <Compile Include="LevelOne\SmallestString.cs" />
+    <Compile Include="LevelOne\Text Analytics.cs" />
+    <Compile Include="Sorting\BubleSort.cs" />
+    <Compile Include="Sorting\ArrayDuplicates.cs" />
+    <Compile Include="Sorting\IntegerDifferenceInArray.cs" />
+    <Compile Include="Sorting\ListIntersection.cs" />
+    <Compile Include="Sorting\MergeSort.cs" />
+    <Compile Include="Sorting\MissingNumber.cs" />
+    <Compile Include="Sorting\QuickSort.cs" />
+    <Compile Include="Sorting\AlphanumericStringSort.cs" />
     <Compile Include="LevelOne\WordWeight.cs" />
     <Compile Include="LevelOne\Palindrome.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Threads\DeadLock.cs" />
+    <Compile Include="Threads\Debounce.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
