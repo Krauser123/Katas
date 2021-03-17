@@ -15,7 +15,62 @@ namespace Katas.LevelOne
         longestWords("Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo") // ["buffalo"] or ["Buffalo"]
      */
 
-    class LongestWords
+    public class LongestWords
     {
+        string InputPhrase;
+        string[] InputPhraseSplited;
+
+        public LongestWords(string inputPhrase)
+        {
+            this.InputPhrase = inputPhrase;
+        }
+
+        public string[] FindLongestWord()
+        {
+            string[] longestWords = new string[] { };
+
+            var longestWord = GetLongestWord();
+            longestWords = GetWordsWithSpecificLength(longestWord.Length);
+            //Console.WriteLine(String.Join(" ",longestWords));
+            return longestWords;
+        }
+
+        private string[] GetWordsWithSpecificLength(int length)
+        {
+            List<string> longestWords = new List<string>();
+
+            for (int i = 0; i < this.InputPhraseSplited.Length; i++)
+            {
+                if (this.InputPhraseSplited[i].Length == length)
+                {
+                    longestWords.Add(this.InputPhraseSplited[i]);
+                }
+            }
+
+            return longestWords.ToArray();
+        }
+
+        private string GetLongestWord()
+        {
+            string longestWord = string.Empty;
+            int indexOfLongWord = 0;
+
+            this.InputPhraseSplited = this.InputPhrase.ToLower().Split();
+            int lastBigLength = 0;
+
+            for (int i = 0; i < this.InputPhraseSplited.Length; i++)
+            {
+                if (this.InputPhraseSplited[i].Length > lastBigLength)
+                {
+                    lastBigLength = this.InputPhraseSplited[i].Length;
+                    indexOfLongWord = i;
+                }
+            }
+
+            longestWord = this.InputPhraseSplited[indexOfLongWord];
+
+            return longestWord;
+        }
     }
+}
 }
