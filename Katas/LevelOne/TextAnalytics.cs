@@ -14,10 +14,6 @@ Number of letters
 Number of symbols(any non-letter and non-digit character, excluding white spaces)
 Top three most common words(you may count "small words", such as "it" or "the")
 Top three most common letters
-Most common first word of a paragraph(paragraph being defined as a block of text with an empty line above it) (Optional bonus)
-Number of words only used once(Optional bonus)
-All letters not used in the document(Optional bonus)
-Please note that your tool does not have to be case sensitive, meaning the word "Hello" is the same as "hello" and "HELLO".
 
 Author: nint22
 
@@ -33,11 +29,147 @@ For each analytic feature, you must print the results in a special string format
 "C symbols", where C is the number of non-letter and non-digit character, excluding white spaces, in the document
 "Top three most common words: D, E, F", where D, E, and F are the top three most common words
 "Top three most common letters: G, H, I", where G, H, and I are the top three most common letters
-"J is the most common first word of all paragraphs", where J is the most common word at the start of all paragraphs in the document (paragraph being defined as a block of text with an empty line above it) (* Optional bonus*)
-"Words only used once: K", where K is a comma-delimited list of all words only used once(*Optional bonus*)
-"Letters not used in the document: L", where L is a comma-delimited list of all alphabetic characters not in the document(*Optional bonus*)
-If there are certain lines that have no answers(such as the situation in which a given document has no paragraph structures), simply do not print that line of text.In this example, I've just generated some random Lorem Ipsum text.*/
-    class TextAnalytics
+*/
+public class TextAnalytics
     {
+        TextStadistics textStadistics = new TextStadistics();
+        Dictionary<string, int> dictWords = new Dictionary<string, int>();
+        Dictionary<char, int> dictLetters = new Dictionary<char, int>();
+
+        public TextAnalytics()
+        {
+
+        }
+
+        public void StartAnalyze()
+        {
+            //Read document
+            string text = System.IO.File.ReadAllText(@".\Document.txt");
+
+            NumberOfWords(text);
+            NumberOfLetters(text);
+
+            SearchMostCommonLetters();
+            SearchMostCommonWords();
+
+            //Print
+            PrintResults();
+        }
+
+        private void NumberOfWords(string text)
+        {
+            var allTextArray = text.Split(' ');
+            textStadistics.numberOfWords = allTextArray.Length;
+
+            for (int i = 0; i < allTextArray.Length; i++)
+            {
+                if (dictWords.ContainsKey(allTextArray[i]))
+                {
+                    dictWords[allTextArray[i]]++;
+                }
+                else
+                {
+                    dictWords.Add(allTextArray[i], 1);
+                }
+            }
+
+            //Sort
+            dictWords = dictWords.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+        }
+
+        private void NumberOfLetters(string text)
+        {
+            textStadistics.numberOfLetters = text.Replace(" ", "").Replace(",", "").Replace(".", "").Replace(";", "").Length;
+            text = text.Replace(" ", "");
+
+            foreach (char item in text)
+            {
+                if (Char.IsPunctuation(item) || Char.IsSymbol(item))
+                {
+                    textStadistics.numberOfSymbols++;
+                }
+                else
+                {
+                    if (dictLetters.ContainsKey(item))
+                    {
+                        dictLetters[item]++;
+                    }
+                    else
+                    {
+                        dictLetters.Add(item, 1);
+                    }
+                }
+            }
+
+            //Sort
+            dictLetters = dictLetters.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+        }
+
+        private void SearchMostCommonLetters()
+        {
+            var partial = dictLetters.Take(3).ToList();
+
+            for (int i = 0; i < partial.Count; i++)
+            {
+                //Asign
+                textStadistics.mostCommonLetters[i] = "Letter : " + partial[i].Key + " appears " + partial[i].Value.ToString() + " times";
+            }
+        }
+
+        private void SearchMostCommonWords()
+        {
+            var partial = dictWords.Where(o => o.Key.Length > 1).Take(3).ToList();
+
+            for (int i = 0; i < partial.Count; i++)
+            {
+                //Asign
+                textStadistics.mostCommonWords[i] = "Word: " + partial[i].Key + " appears:" + partial[i].Value.ToString() + " times";
+            }
+        }
+
+
+        private void PrintResults()
+        {
+            Console.WriteLine(string.Format("{0} words", textStadistics.numberOfWords));
+            Console.WriteLine(string.Format("{0} letters", textStadistics.numberOfLetters));
+            Console.WriteLine(string.Format("{0} symbols", textStadistics.numberOfSymbols));
+            Console.WriteLine("\n");
+            Console.WriteLine(string.Format("Top three most common words: \n {0} \n {1} \n {2}", textStadistics.mostCommonWords[0], textStadistics.mostCommonWords[1], textStadistics.mostCommonWords[2]));
+            Console.WriteLine("\n");
+            Console.WriteLine(string.Format("Top three most common letters: \n {0} \n {1} \n {2}", textStadistics.mostCommonLetters[0], textStadistics.mostCommonLetters[1], textStadistics.mostCommonLetters[2]));
+        }
+    }
+
+    internal class TextStadistics
+    {
+        /// <summary>
+        /// Number of words in the given document
+        /// </summary>
+        public int numberOfWords;
+
+        /// <summary>
+        /// Number of letters in the given document
+        /// </summary>
+        public int numberOfLetters;
+
+        /// <summary>
+        /// Number of non-letter and non-digit character, excluding white spaces, in the document
+        /// </summary>
+        public int numberOfSymbols;
+
+        /// <summary>
+        /// Top three most common words in text
+        /// </summary>
+        public string[] mostCommonWords = new string[3];
+
+        /// <summary>
+        /// Top three most common letters in text
+        /// </summary>
+        public string[] mostCommonLetters = new string[3];
+
+        public TextStadistics()
+        {
+
+        }
     }
 }
