@@ -6,31 +6,31 @@ using System.Threading.Tasks;
 
 namespace Katas.LevelOne
 {
-/*    Text Analytics
-You're a newly hired engineer for a brand-new company that's building a "killer Word-like application". You've been specifically assigned to implement a tool that gives the user some details on common word usage, letter usage, and some other analytics for a given document! More specifically, you must read a given text file (no special formatting, just a plain ASCII text file) and print off the following details:
+    /*    Text Analytics
+    You're a newly hired engineer for a brand-new company that's building a "killer Word-like application". You've been specifically assigned to implement a tool that gives the user some details on common word usage, letter usage, and some other analytics for a given document! More specifically, you must read a given text file (no special formatting, just a plain ASCII text file) and print off the following details:
 
-Number of words
-Number of letters
-Number of symbols(any non-letter and non-digit character, excluding white spaces)
-Top three most common words(you may count "small words", such as "it" or "the")
-Top three most common letters
+    Number of words
+    Number of letters
+    Number of symbols(any non-letter and non-digit character, excluding white spaces)
+    Top three most common words(you may count "small words", such as "it" or "the")
+    Top three most common letters
 
-Author: nint22
+    Author: nint22
 
-Formal Inputs & Outputs
-Input Description
-As an argument to your program on the command line, you will be given a text file location(such as "C:\Users\nint22\Document.txt" on Windows or "/Users/nint22/Document.txt" on any other sane file system). This file may be empty, but will be guaranteed well-formed(all valid ASCII characters). You can assume that line endings will follow the UNIX-style new-line ending(unlike the Windows carriage-return & new-line format ).
+    Formal Inputs & Outputs
+    Input Description
+    As an argument to your program on the command line, you will be given a text file location(such as "C:\Users\nint22\Document.txt" on Windows or "/Users/nint22/Document.txt" on any other sane file system). This file may be empty, but will be guaranteed well-formed(all valid ASCII characters). You can assume that line endings will follow the UNIX-style new-line ending(unlike the Windows carriage-return & new-line format ).
 
-Output Description
-For each analytic feature, you must print the results in a special string format.Simply you will print off 6 to 8 sentences with the following format:
+    Output Description
+    For each analytic feature, you must print the results in a special string format.Simply you will print off 6 to 8 sentences with the following format:
 
-"A words", where A is the number of words in the given document
-"B letters", where B is the number of letters in the given document
-"C symbols", where C is the number of non-letter and non-digit character, excluding white spaces, in the document
-"Top three most common words: D, E, F", where D, E, and F are the top three most common words
-"Top three most common letters: G, H, I", where G, H, and I are the top three most common letters
-*/
-public class TextAnalytics
+    "A words", where A is the number of words in the given document
+    "B letters", where B is the number of letters in the given document
+    "C symbols", where C is the number of non-letter and non-digit character, excluding white spaces, in the document
+    "Top three most common words: D, E, F", where D, E, and F are the top three most common words
+    "Top three most common letters: G, H, I", where G, H, and I are the top three most common letters
+    */
+    public class TextAnalytics
     {
         TextStadistics textStadistics = new TextStadistics();
         Dictionary<string, int> dictWords = new Dictionary<string, int>();

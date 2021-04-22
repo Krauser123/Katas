@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Katas.LevelOne
 {
     public class CashUnits
     {
- /*
+    /*
          Write a function that returns the number of each cash-unit that fits into the given input, triying to return the minimum units posible.
         Given cash units are:
         500

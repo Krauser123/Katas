@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Katas.LevelOne
 {
@@ -27,11 +23,8 @@ namespace Katas.LevelOne
 
         public string[] FindLongestWord()
         {
-            string[] longestWords = new string[] { };
-
             var longestWord = GetLongestWord();
-            longestWords = GetWordsWithSpecificLength(longestWord.Length);
-            //Console.WriteLine(String.Join(" ",longestWords));
+            string[] longestWords = GetWordsWithSpecificLength(longestWord.Length);
             return longestWords;
         }
 
@@ -52,7 +45,7 @@ namespace Katas.LevelOne
 
         private string GetLongestWord()
         {
-            string longestWord = string.Empty;
+            string longestWord;
             int indexOfLongWord = 0;
 
             this.InputPhraseSplited = this.InputPhrase.ToLower().Split();
@@ -72,5 +65,4 @@ namespace Katas.LevelOne
             return longestWord;
         }
     }
-}
 }
