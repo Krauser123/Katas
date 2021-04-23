@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Katas.LevelOne
 {
@@ -14,5 +11,21 @@ namespace Katas.LevelOne
      */
     public class ReverseWordsInAString
     {
+        public string ReverseWords(string phrase)
+        {
+            string reversed = null;
+            if (!string.IsNullOrEmpty(phrase))
+            {
+                //Remove leading and trailing whitespaces
+                phrase = phrase.Trim();
+
+                //Split and reverse
+                var splittedPhrase = phrase.Split(' ').Where(s => !string.IsNullOrWhiteSpace(s)).Reverse();
+
+                reversed = String.Join(" ", splittedPhrase);
+            }
+
+            return reversed;
+        }
     }
 }
