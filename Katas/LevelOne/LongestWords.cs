@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Katas.LevelOne
 {
@@ -18,13 +20,18 @@ namespace Katas.LevelOne
 
         public LongestWords(string inputPhrase)
         {
-            this.InputPhrase = inputPhrase;
+            //Check if phrase is null
+            this.InputPhrase = inputPhrase ?? throw new ArgumentException(inputPhrase);
         }
 
         public string[] FindLongestWord()
         {
             var longestWord = GetLongestWord();
             string[] longestWords = GetWordsWithSpecificLength(longestWord.Length);
+
+            //Remove words if are the same
+            longestWords = longestWords.Distinct().ToArray();
+
             return longestWords;
         }
 
