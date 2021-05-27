@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LevelOne\CashUnits.cs" />
+    <Compile Include="LevelTwo\AbecedarianWord.cs" />
+    <Compile Include="LevelTwo\ASCIIArtTo3D.cs" />
     <Compile Include="LevelTwo\FindNextPalindromeNumber.cs" />
     <Compile Include="LevelOne\FirstNonRepeatedCharacter.cs" />
     <Compile Include="LevelOne\IncrementNumberInArray.cs" />
