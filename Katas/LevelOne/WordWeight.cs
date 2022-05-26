@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-
+﻿
 namespace Katas.LevelOne
 {
    public class WordWeight

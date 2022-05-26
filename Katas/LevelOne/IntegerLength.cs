@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Katas.LevelOne
 {
     /*
@@ -12,6 +7,15 @@ namespace Katas.LevelOne
 
     public class IntegerLength
     {
+        public int CountIntegerDigits(int number)
+        {
+            int numberOfDigits = 0;
 
+
+            numberOfDigits = number.ToString().Length;
+
+
+            return numberOfDigits;
+        }
     }
 }

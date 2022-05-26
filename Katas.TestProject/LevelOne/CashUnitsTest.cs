@@ -6,12 +6,6 @@ namespace Katas.TestProject.LevelOne
     [TestClass]
     public class CashUnitsTest
     {
-        [TestMethod]
-        public void IsQuantityExact()
-        {
-            CashUnits cashUnits = new CashUnits();
-            cashUnits.CashUnitCalc(1000);
-            Assert.IsTrue(false);
-        }
+        
     }    
 }
