@@ -20,8 +20,9 @@ namespace Katas.LevelOne
 
                     //Otherwise the value is 0
                     if (char.IsLetter(letterToCalc))
-                    {                        
-                        var weight = (letterToCalc - 'A') + 1; //Other option: (var weight = letterToCalc - 64;) In ASCII, A=65
+                    {
+                        //Other option: (var weight = letterToCalc - 64;) In ASCII, A=65
+                        var weight = (letterToCalc - 'A') + 1;
                         wordWeight += weight;
                     }
                 }

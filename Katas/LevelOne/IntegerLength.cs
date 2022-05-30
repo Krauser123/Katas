@@ -9,12 +9,7 @@ namespace Katas.LevelOne
     {
         public int CountIntegerDigits(int number)
         {
-            int numberOfDigits = 0;
-
-
-            numberOfDigits = number.ToString().Length;
-
-
+            int numberOfDigits = number.ToString().Length;
             return numberOfDigits;
         }
     }
