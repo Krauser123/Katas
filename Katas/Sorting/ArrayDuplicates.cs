@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Katas.Sorting
 {
@@ -14,7 +11,27 @@ namespace Katas.Sorting
      */
 
     public class ArrayDuplicates
-    {
+    {        
+        public static int[] GetDuplicatesInArray(int[] numbers)
+        {
+            Dictionary<int, int> numberOcurrences = new Dictionary<int, int>();
 
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                var currentNumber = numbers[i];
+                if (numberOcurrences.ContainsKey(currentNumber))
+                {
+                    numberOcurrences[currentNumber] = numberOcurrences[currentNumber] + 1;
+                }
+                else
+                {
+                    numberOcurrences.Add(currentNumber, 1);
+                }
+            }
+
+            var sorted = numberOcurrences.OrderByDescending(o => o.Value).Select(o => o.Key).ToArray();
+
+            return sorted;
+        }
     }
 }

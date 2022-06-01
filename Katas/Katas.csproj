@@ -57,7 +57,7 @@
     <Compile Include="LevelOne\MoneyFormating.cs" />
     <Compile Include="LevelOne\ReverseWordsInAString.cs" />
     <Compile Include="LevelTwo\SmallestString.cs" />
-    <Compile Include="LevelOne\TextAnalytics.cs" />
+    <Compile Include="LevelTwo\TextAnalytics.cs" />
     <Compile Include="Sorting\BubleSort.cs" />
     <Compile Include="Sorting\ArrayDuplicates.cs" />
     <Compile Include="Sorting\IntegerDifferenceInArray.cs" />

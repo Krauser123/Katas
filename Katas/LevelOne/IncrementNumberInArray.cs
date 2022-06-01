@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 
 namespace Katas.LevelOne
 {
@@ -21,13 +19,13 @@ namespace Katas.LevelOne
                 numbr += arrayToInc[i];
             }
 
-            var as2 = Convert.ToInt32(numbr);
-            as2++;
+            var num = Convert.ToInt32(numbr);
+            num++;
 
-            int[] newGuess = new int[as2.ToString().Length];
-            for (int i = 0; i < as2.ToString().Length; i++)
+            int[] newGuess = new int[num.ToString().Length];
+            for (int i = 0; i < num.ToString().Length; i++)
             {
-                newGuess[i] = as2.ToString()[i] - '0';
+                newGuess[i] = num.ToString()[i] - '0';
             }
 
             return newGuess;
