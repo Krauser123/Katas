@@ -39,19 +39,17 @@ namespace Katas.LevelTwo
 
         }
 
-        public void StartAnalyze()
+        public TextStadistics StartAnalyze(string textToAnalyze)
         {
-            //Read document
-            string text = System.IO.File.ReadAllText(@".\Document.txt");
-
-            NumberOfWords(text);
-            NumberOfLetters(text);
+            NumberOfWords(textToAnalyze);
+            NumberOfLetters(textToAnalyze);
 
             SearchMostCommonLetters();
             SearchMostCommonWords();
 
-            //Print
             PrintResults();
+
+            return textStadistics;
         }
 
         private void NumberOfWords(string text)
@@ -125,7 +123,6 @@ namespace Katas.LevelTwo
             }
         }
 
-
         private void PrintResults()
         {
             Console.WriteLine(string.Format("{0} words", textStadistics.numberOfWords));
@@ -138,7 +135,7 @@ namespace Katas.LevelTwo
         }
     }
 
-    internal class TextStadistics
+    public class TextStadistics
     {
         /// <summary>
         /// Number of words in the given document
